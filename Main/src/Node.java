@@ -5,7 +5,7 @@
 /**
  * Blueprint for Nodes
  */
-public class Node<T> {
+public class Node<T> implements IPosition<T>{
 	private T element;
 	private Node<T> next;
 	private Node<T> prev;

@@ -5,7 +5,7 @@
 /**
  * Class that contains Doubly Linked List "functionality"
  */
-public class PositionalList<T> implements IPosition<T>{
+public class PositionalList<T> implements IPositionalList<T>{
 	private int size = 0;
 	private Node<T> header = null;
 	private Node<T> trailer = null;
@@ -25,7 +25,7 @@ public class PositionalList<T> implements IPosition<T>{
 	}
 
 	@Override
-	public IPosition<T> addFirst(T element) {
+	public IPositionalList<T> addFirst(T element) {
 		// TODO Auto-generated method stub
 		Node<T> newNode = new Node<>(element, header, null);
 		
@@ -36,11 +36,11 @@ public class PositionalList<T> implements IPosition<T>{
 		}
 		header = newNode;
 		size++;
-		return (IPosition<T>) newNode;
+		return (IPositionalList<T>) newNode;
 	}
 
 	@Override
-	public IPosition<T> addBefore(IPosition<T> node, T element) {
+	public IPositionalList<T> addBefore(IPositionalList<T> node, T element) {
 		// TODO Auto-generated method stub
 		Node<T> theNode = (Node<T>) node;
 		if(theNode == null) {
@@ -56,11 +56,11 @@ public class PositionalList<T> implements IPosition<T>{
 		}
 		theNode.setNext(newNode);
 		size++;
-		return (IPosition<T>) newNode;
+		return (IPositionalList<T>) newNode;
 	}
 
 	@Override
-	public IPosition<T> addAfter(IPosition<T> node, T element) {
+	public IPositionalList<T> addAfter(IPositionalList<T> node, T element) {
 		// TODO Auto-generated method stub
 		Node<T> theNode = (Node<T>) node;
 		if(theNode == null) {
@@ -76,11 +76,11 @@ public class PositionalList<T> implements IPosition<T>{
 		}
 		theNode.setNext(newNode);
 		size++;
-		return (IPosition<T>) newNode;
+		return (IPositionalList<T>) newNode;
 	}
 
 	@Override
-	public T remove(IPosition<T> node) {
+	public T remove(IPositionalList<T> node) {
 		// TODO Auto-generated method stub
 		Node<T> theNode = (Node<T>) node;
 		if(theNode == null) {
