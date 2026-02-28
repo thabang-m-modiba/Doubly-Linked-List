@@ -25,7 +25,7 @@ public class PositionalList<T> implements IPositionalList<T>{
 	}
 
 	@Override
-	public IPositionalList<T> addFirst(T element) {
+	public IPosition<T> addFirst(T element) {
 		// TODO Auto-generated method stub
 		Node<T> newNode = new Node<>(element, header, null);
 		
@@ -36,11 +36,11 @@ public class PositionalList<T> implements IPositionalList<T>{
 		}
 		header = newNode;
 		size++;
-		return (IPositionalList<T>) newNode;
+		return newNode;
 	}
 
 	@Override
-	public IPositionalList<T> addBefore(IPositionalList<T> node, T element) {
+	public IPosition<T> addBefore(IPosition<T> node, T element) {
 		// TODO Auto-generated method stub
 		Node<T> theNode = (Node<T>) node;
 		if(theNode == null) {
@@ -56,11 +56,11 @@ public class PositionalList<T> implements IPositionalList<T>{
 		}
 		theNode.setNext(newNode);
 		size++;
-		return (IPositionalList<T>) newNode;
+		return newNode;
 	}
 
 	@Override
-	public IPositionalList<T> addAfter(IPositionalList<T> node, T element) {
+	public IPosition<T> addAfter(IPosition<T> node, T element) {
 		// TODO Auto-generated method stub
 		Node<T> theNode = (Node<T>) node;
 		if(theNode == null) {
@@ -69,18 +69,18 @@ public class PositionalList<T> implements IPositionalList<T>{
 		
 		Node<T> newNode = new Node<>(element, theNode, theNode.getNext());
 		
-		if(theNode.getNext() == null) {
+		if(theNode.getNext() != null) {
 			theNode.getNext().setPrev(newNode);
 		}else {
 			trailer = newNode;
 		}
 		theNode.setNext(newNode);
 		size++;
-		return (IPositionalList<T>) newNode;
+		return newNode;
 	}
 
 	@Override
-	public T remove(IPositionalList<T> node) {
+	public T remove(IPosition<T> node) {
 		// TODO Auto-generated method stub
 		Node<T> theNode = (Node<T>) node;
 		if(theNode == null) {
